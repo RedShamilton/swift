@@ -244,6 +244,9 @@ public protocol _RangeReplaceableIndexable : _Indexable {
 public protocol RangeReplaceableCollection
   : _RangeReplaceableIndexable, Collection
 {
+  associatedtype SubSequence : RangeReplaceableIndexable /*: RangeReplaceableCollection*/
+    = RangeReplaceableSlice<Self>
+
   //===--- Fundamental Requirements ---------------------------------------===//
 
   /// Creates a new, empty collection.
